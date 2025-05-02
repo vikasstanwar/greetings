@@ -6,5 +6,11 @@ WORKDIR /app
 # Copy the greetings.py file into the container
 COPY greetings.py .
 
-# Set the default command to run the greetings.py script
-CMD ["python", "greetings.py"]
+# Make the script executable
+RUN chmod +x /app/greetings.py
+
+# Add /app to the PATH
+ENV PATH="/app:${PATH}"
+
+# Set the entrypoint to run the Python script
+ENTRYPOINT ["python", "/app/greetings.py"]

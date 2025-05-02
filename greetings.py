@@ -1,9 +1,8 @@
+#!/usr/bin/env python3
+import sys
 from datetime import datetime
 
-def greet_user():
-    # Get the user's name
-    name = input("Please enter your name: ")
-
+def greet_user(name):
     # Get the current hour
     current_hour = datetime.now().hour
 
@@ -19,4 +18,8 @@ def greet_user():
     print(f"{greeting}, {name}!")
 
 if __name__ == "__main__":
-    greet_user()
+    if len(sys.argv) < 2:
+        print("Usage: python greetings.py <name>")
+        sys.exit(1)
+    name = sys.argv[1]
+    greet_user(name)
