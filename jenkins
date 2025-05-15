@@ -11,7 +11,7 @@ pipeline {
                 git branch: 'main', credentialsId: 'gitvik', url: 'https://github.com/vikasstanwar/greetings.git'
             }
         }
-        stage('Build Docker Image') {
+        stage('Build Docker Image Atomatically') {
             steps {
                 sh 'docker build -t greetings-app .'
             }
