@@ -16,7 +16,7 @@ pipeline {
                 sh 'docker build -t greetings-app .'
             }
         }
-        stage('Run Docker Container') {
+        stage('Run Docker Container Automatically') {
             steps {
                 sh "docker run --rm greetings-app ${params.USER_NAME}"
             }
